@@ -4,15 +4,23 @@ import net.earthspawn.mod.EarthspawnMod;
 import net.earthspawn.mod.blocks.HallowDirt;
 import net.earthspawn.mod.blocks.HallowGrass;
 import net.earthspawn.mod.blocks.TopazOre;
+import net.earthspawn.mod.itemgroup.EarthspawnModItemgroup;
 import net.earthspawn.mod.items.ItemBase;
 import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Objects;
+
+@Mod.EventBusSubscriber(modid = EarthspawnMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RegistryHandler {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, EarthspawnMod.MOD_ID);
@@ -22,6 +30,12 @@ public class RegistryHandler {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BLOCKS.register(bus);
         ITEMS.register(bus);
+    }
+
+    @SubscribeEvent
+    public static void createBlocksItems(final RegistryEvent.Register<Item> event){
+        RegistryHandler.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block ->
+                event.getRegistry().register(new BlockItem(block, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)).setRegistryName(Objects.requireNonNull(block.getRegistryName()))));
     }
 
     //blocks

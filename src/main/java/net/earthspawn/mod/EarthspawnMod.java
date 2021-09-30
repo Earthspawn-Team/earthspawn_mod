@@ -15,7 +15,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(EarthspawnMod.MOD_ID)
-@Mod.EventBusSubscriber(modid = EarthspawnMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EarthspawnMod
 {
     public static final String MOD_ID = "earthspawn";
@@ -27,12 +26,5 @@ public class EarthspawnMod
         RegistryHandler.init();
 
         MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    @SubscribeEvent
-    public static void createBlocksItems(final RegistryEvent.Register<Item> event){
-        RegistryHandler.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-        event.getRegistry().register(new BlockItem(block, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)).setRegistryName(block.getRegistryName()));
-        });
     }
 }
