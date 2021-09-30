@@ -14,4 +14,16 @@ public class ItemInit {
     public static final RegistryObject<Item> TOPAZ = ITEMS.register("topaz",
             () -> new Item(new Item.Properties()
             .group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+
+    public static final RegistryObject<Item> UNICORN_HORN = ITEMS.register("unicorn_horn",
+            () -> new Item(new Item.Properties()
+            .group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+
+    public static  final RegistryObject<Item> CRYSTAL = ITEMS.register("crystal",
+            () -> new Item(new Item.Properties()
+            .group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+
+    public static final RegistryObject<Item> CRYSTAL_SHARD = ITEMS.register("crystal_shard",
+            () -> new Item(new Item.Properties()
+            .group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
 }
