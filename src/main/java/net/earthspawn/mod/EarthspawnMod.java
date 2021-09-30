@@ -1,6 +1,7 @@
 package net.earthspawn.mod;
 
 import net.earthspawn.mod.core.init.BlockInit;
+import net.earthspawn.mod.core.init.EntityTypesInit;
 import net.earthspawn.mod.core.init.FeatureInit;
 import net.earthspawn.mod.core.init.ItemInit;
 import net.earthspawn.mod.core.itemgroup.EarthspawnModItemgroup;
@@ -30,6 +31,7 @@ public class EarthspawnMod
     public EarthspawnMod() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        EntityTypesInit.ENTiTY_TYPES.register(bus);
         BlockInit.BLOCKS.register(bus);
         ItemInit.ITEMS.register(bus);
 
