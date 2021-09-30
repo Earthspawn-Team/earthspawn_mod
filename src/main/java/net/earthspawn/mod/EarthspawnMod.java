@@ -1,6 +1,7 @@
 package net.earthspawn.mod;
 
 import net.earthspawn.mod.core.init.BlockInit;
+import net.earthspawn.mod.core.init.FeatureInit;
 import net.earthspawn.mod.core.init.ItemInit;
 import net.earthspawn.mod.core.itemgroup.EarthspawnModItemgroup;
 import net.minecraft.item.BlockItem;
@@ -8,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
@@ -31,6 +33,7 @@ public class EarthspawnMod
         BlockInit.BLOCKS.register(bus);
         ItemInit.ITEMS.register(bus);
 
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
         MinecraftForge.EVENT_BUS.register(this);
     }
 

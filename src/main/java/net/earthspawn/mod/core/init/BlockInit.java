@@ -3,6 +3,7 @@ package net.earthspawn.mod.core.init;
 import net.earthspawn.mod.EarthspawnMod;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -29,4 +30,7 @@ public class BlockInit {
             .harvestTool(ToolType.SHOVEL)
             .harvestLevel(0)
             .sound(SoundType.GROUND)));
+
+    public static final RegistryObject<Block> TOPAZ_ORE = BLOCKS.register("topaz_ore",
+            () -> new Block(AbstractBlock.Properties.from(Blocks.DIAMOND_ORE)));
 }
