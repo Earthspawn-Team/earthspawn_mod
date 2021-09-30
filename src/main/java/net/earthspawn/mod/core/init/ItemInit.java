@@ -26,4 +26,12 @@ public class ItemInit {
     public static final RegistryObject<Item> CRYSTAL_SHARD = ITEMS.register("crystal_shard",
             () -> new Item(new Item.Properties()
             .group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+
+    public static final RegistryObject<Item> CHARGED_CRYSTAL = ITEMS.register("charged_crystal",
+            () -> new Item(new Item.Properties()
+            .group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+
+    public static final RegistryObject<Item> ASTRAL_DUST = ITEMS.register("astral_dust",
+            () -> new Item(new Item.Properties()
+            .group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
 }
