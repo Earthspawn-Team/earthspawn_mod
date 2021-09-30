@@ -1,9 +1,6 @@
-package net.earthspawn.mod.core.itemgroup;
+package net.earthspawn.mod.itemgroup;
 
-import net.earthspawn.mod.core.init.BlockInit;
-import net.earthspawn.mod.core.init.ItemInit;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import net.earthspawn.mod.utils.RegistryHandler;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
@@ -17,6 +14,6 @@ public class EarthspawnModItemgroup extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(BlockInit.HALLOW_GRASS.get());
+        return new ItemStack(RegistryHandler.HALLOW_GRASS.get());
     }
 }
