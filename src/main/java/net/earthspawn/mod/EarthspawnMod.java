@@ -28,8 +28,8 @@ public class EarthspawnMod
     public EarthspawnMod() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
+        ItemInit.ITEMS.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
