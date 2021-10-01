@@ -58,5 +58,5 @@ public class RegistryHandler {
     public static final RegistryObject<SwordItem> TOPAZ_SWORD = ITEMS.register("topaz_sword",
             () -> new SwordItem(ItemTier.TOPAZ_TIER, 6, -2.4F, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
     public static final RegistryObject<PickaxeItem> TOPAZ_PICKAXE = ITEMS.register("topaz_pickaxe",
-            () -> new PickaxeItem(ItemTier.TOPAZ_TIER, 2, -2, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+            () -> new PickaxeItem(ItemTier.TOPAZ_TIER, 1, -2.8F, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
 }
