@@ -6,9 +6,11 @@ import net.earthspawn.mod.blocks.HallowGrass;
 import net.earthspawn.mod.blocks.TopazOre;
 import net.earthspawn.mod.itemgroup.EarthspawnModItemgroup;
 import net.earthspawn.mod.items.ItemBase;
+import net.earthspawn.mod.tools.ItemTier;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.SwordItem;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -50,4 +52,8 @@ public class RegistryHandler {
     public static final RegistryObject<Item> CRYSTAL_SHARD = ITEMS.register("crystal_shard", ItemBase::new);
     public static final RegistryObject<Item> CHARGED_CRYSTAL = ITEMS.register("charged_crystal", ItemBase::new);
     public static final RegistryObject<Item> ASTRAL_DUST = ITEMS.register("astral_dust", ItemBase::new);
+
+    //tools
+    public static final RegistryObject<SwordItem> TOPAZ_SWORD = ITEMS.register("topaz_sword",
+            () -> new SwordItem(ItemTier.TOPAZ_TIER, 6, -2.4F, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
 }
