@@ -18,5 +18,7 @@
   "item.earthspawn.charged_crystal": "Charged Crystal",
   "item.earthspawn.astral_dust": "Astral Dust",
 
+  "entity.earthspawn.test_entity": "Test Entity",
+
   "itemGroup.earthspawn": "Earthspawn"
 }

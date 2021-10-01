@@ -5,12 +5,16 @@ import net.earthspawn.mod.armors.ArmorMaterial;
 import net.earthspawn.mod.blocks.HallowDirt;
 import net.earthspawn.mod.blocks.HallowGrass;
 import net.earthspawn.mod.blocks.TopazOre;
+import net.earthspawn.mod.entities.TestEntity;
 import net.earthspawn.mod.itemgroup.EarthspawnModItemgroup;
 import net.earthspawn.mod.items.ItemBase;
 import net.earthspawn.mod.tools.ItemTier;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,11 +31,13 @@ public class RegistryHandler {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, EarthspawnMod.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, EarthspawnMod.MOD_ID);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, EarthspawnMod.MOD_ID);
 
     public static void init() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BLOCKS.register(bus);
         ITEMS.register(bus);
+        ENTITY_TYPES.register(bus);
     }
 
     @SubscribeEvent
@@ -68,4 +74,10 @@ public class RegistryHandler {
             () -> new ArmorItem(ArmorMaterial.TOPAZ, EquipmentSlotType.LEGS, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
     public static final RegistryObject<ArmorItem> TOPAZ_BOOTS = ITEMS.register("topaz_boots",
             () -> new ArmorItem(ArmorMaterial.TOPAZ, EquipmentSlotType.FEET, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+
+    //entities
+    public static final RegistryObject<EntityType<TestEntity>> TEST_ENTITY = ENTITY_TYPES.register("test_entity",
+            () -> EntityType.Builder.create(TestEntity::new, EntityClassification.CREATURE)
+                    .size(1.0F, 1.0F)
+                    .build(new ResourceLocation(EarthspawnMod.MOD_ID, "test_entity").toString()));
 }
