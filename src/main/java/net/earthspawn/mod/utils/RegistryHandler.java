@@ -1,6 +1,7 @@
 package net.earthspawn.mod.utils;
 
 import net.earthspawn.mod.EarthspawnMod;
+import net.earthspawn.mod.armors.ArmorMaterial;
 import net.earthspawn.mod.blocks.HallowDirt;
 import net.earthspawn.mod.blocks.HallowGrass;
 import net.earthspawn.mod.blocks.TopazOre;
@@ -8,10 +9,8 @@ import net.earthspawn.mod.itemgroup.EarthspawnModItemgroup;
 import net.earthspawn.mod.items.ItemBase;
 import net.earthspawn.mod.tools.ItemTier;
 import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.SwordItem;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.*;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -59,4 +58,14 @@ public class RegistryHandler {
             () -> new SwordItem(ItemTier.TOPAZ_TIER, 6, -2.4F, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
     public static final RegistryObject<PickaxeItem> TOPAZ_PICKAXE = ITEMS.register("topaz_pickaxe",
             () -> new PickaxeItem(ItemTier.TOPAZ_TIER, 1, -2.8F, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+
+    //armors
+    public static final RegistryObject<ArmorItem> TOPAZ_HELMET = ITEMS.register("topaz_helmet",
+            () -> new ArmorItem(ArmorMaterial.TOPAZ, EquipmentSlotType.HEAD, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+    public static final RegistryObject<ArmorItem> TOPAZ_CHESTPLATE = ITEMS.register("topaz_chestplate",
+            () -> new ArmorItem(ArmorMaterial.TOPAZ, EquipmentSlotType.CHEST, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+    public static final RegistryObject<ArmorItem> TOPAZ_LEGGINGS = ITEMS.register("topaz_leggings",
+            () -> new ArmorItem(ArmorMaterial.TOPAZ, EquipmentSlotType.LEGS, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+    public static final RegistryObject<ArmorItem> TOPAZ_BOOTS = ITEMS.register("topaz_boots",
+            () -> new ArmorItem(ArmorMaterial.TOPAZ, EquipmentSlotType.FEET, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
 }
