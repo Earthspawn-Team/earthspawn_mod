@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterial implements IArmorMaterial {
 
-    TOPAZ(EarthspawnMod.MOD_ID + ":topaz", 40, new int[] { 5, 7, 9, 4}, 24, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4, () -> {
+    TOPAZ(EarthspawnMod.MOD_ID + ":topaz", 40, new int[] {5, 7, 9, 4}, 24, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4, 1, () -> {
         return Ingredient.fromItems(RegistryHandler.TOPAZ.get());
     });
 
@@ -26,14 +26,16 @@ public enum ArmorMaterial implements IArmorMaterial {
     private final SoundEvent soundEvent;
     private final float toughness;
     private final Supplier<Ingredient> repairMaterial;
+    private final float knockbackResistance;
 
-    ArmorMaterial(String name, int maxDamageFactor, int[] damageReductionAmountCountArray, int enchantability, SoundEvent soundEvent, float toughness, Supplier<Ingredient> repairMaterial){
+    ArmorMaterial(String name, int maxDamageFactor, int[] damageReductionAmountCountArray, int enchantability, SoundEvent soundEvent, float toughness, float knockbackResistance, Supplier<Ingredient> repairMaterial){
         this.name = name;
         this.maxDamageFactor = maxDamageFactor;
         this.damageReductionAmountCountArray = damageReductionAmountCountArray;
         this.enchantability = enchantability;
         this.soundEvent = soundEvent;
         this.toughness = toughness;
+        this.knockbackResistance = knockbackResistance;
         this.repairMaterial = repairMaterial;
     }
 
@@ -75,6 +77,6 @@ public enum ArmorMaterial implements IArmorMaterial {
 
     @Override
     public float getKnockbackResistance() {
-        return 0;
+        return this.knockbackResistance;
     }
 }
