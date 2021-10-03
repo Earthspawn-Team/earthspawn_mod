@@ -15,8 +15,6 @@ public class EarthspawnMod
     private static final Logger LOGGER = LogManager.getLogger();
 
     public EarthspawnMod() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
         RegistryHandler.init();
 
         MinecraftForge.EVENT_BUS.register(this);
