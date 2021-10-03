@@ -33,17 +33,17 @@ public class RegistryHandler {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, EarthspawnMod.MOD_ID);
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, EarthspawnMod.MOD_ID);
 
+    @SubscribeEvent
+    public static void createBlocksItems(final RegistryEvent.Register<Item> event){
+        RegistryHandler.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block ->
+                event.getRegistry().register(new BlockItem(block, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)).setRegistryName(block.getRegistryName())));
+    }
+
     public static void init() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BLOCKS.register(bus);
         ITEMS.register(bus);
         ENTITY_TYPES.register(bus);
-    }
-
-    @SubscribeEvent
-    public static void createBlocksItems(final RegistryEvent.Register<Item> event){
-        RegistryHandler.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block ->
-                event.getRegistry().register(new BlockItem(block, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)).setRegistryName(Objects.requireNonNull(block.getRegistryName()))));
     }
 
     //blocks
