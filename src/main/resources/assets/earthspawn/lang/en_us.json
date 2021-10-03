@@ -18,7 +18,9 @@
   "item.earthspawn.charged_crystal": "Charged Crystal",
   "item.earthspawn.astral_dust": "Astral Dust",
 
-  "entity.earthspawn.test_entity": "Test Entity",
+  "item.earthspawn.oulisk_spawn_egg": "Oulisk Spawn Egg",
+
+  "entity.earthspawn.oulisk_entity": "Oulisk",
 
   "itemGroup.earthspawn": "Earthspawn"
 }

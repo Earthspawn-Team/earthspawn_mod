@@ -5,9 +5,10 @@ import net.earthspawn.mod.armors.ArmorMaterial;
 import net.earthspawn.mod.blocks.HallowDirt;
 import net.earthspawn.mod.blocks.HallowGrass;
 import net.earthspawn.mod.blocks.TopazOre;
-import net.earthspawn.mod.entities.TestEntity;
+import net.earthspawn.mod.entities.OuliskEntity;
 import net.earthspawn.mod.itemgroup.EarthspawnModItemgroup;
 import net.earthspawn.mod.items.ItemBase;
+import net.earthspawn.mod.items.spawneggs.ModSpawnEggItem;
 import net.earthspawn.mod.tools.ItemTier;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityClassification;
@@ -59,6 +60,9 @@ public class RegistryHandler {
     public static final RegistryObject<Item> CHARGED_CRYSTAL = ITEMS.register("charged_crystal", ItemBase::new);
     public static final RegistryObject<Item> ASTRAL_DUST = ITEMS.register("astral_dust", ItemBase::new);
 
+    public static final RegistryObject<ModSpawnEggItem> OULISK_SPAWN_EGG = ITEMS.register("oulisk_spawn_egg",
+            () -> new ModSpawnEggItem(RegistryHandler.OULISK_ENTITY, 0x900EBD, 0x00FFFB, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+
     //tools
     public static final RegistryObject<SwordItem> TOPAZ_SWORD = ITEMS.register("topaz_sword",
             () -> new SwordItem(ItemTier.TOPAZ_TIER, 6, -2.4F, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
@@ -76,8 +80,8 @@ public class RegistryHandler {
             () -> new ArmorItem(ArmorMaterial.TOPAZ, EquipmentSlotType.FEET, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
 
     //entities
-    public static final RegistryObject<EntityType<TestEntity>> TEST_ENTITY = ENTITY_TYPES.register("test_entity",
-            () -> EntityType.Builder.create(TestEntity::new, EntityClassification.CREATURE)
+    public static final RegistryObject<EntityType<OuliskEntity>> OULISK_ENTITY = ENTITY_TYPES.register("oulisk",
+            () -> EntityType.Builder.create(OuliskEntity::new, EntityClassification.CREATURE)
                     .size(1.0F, 1.0F)
-                    .build(new ResourceLocation(EarthspawnMod.MOD_ID, "test_entity").toString()));
+                    .build(new ResourceLocation(EarthspawnMod.MOD_ID, "oulisk").toString()));
 }
