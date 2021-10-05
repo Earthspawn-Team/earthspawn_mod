@@ -82,6 +82,6 @@ public class RegistryHandler {
     //entities
     public static final RegistryObject<EntityType<OuliskEntity>> OULISK_ENTITY = ENTITY_TYPES.register("oulisk",
             () -> EntityType.Builder.create(OuliskEntity::new, EntityClassification.CREATURE)
-                    .size(1.0F, 1.0F)
+                    .size(1.1F, 1.0F)
                     .build(new ResourceLocation(EarthspawnMod.MOD_ID, "oulisk").toString()));
 }

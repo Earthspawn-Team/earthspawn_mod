@@ -2,9 +2,7 @@ package net.earthspawn.mod.entities;
 
 import net.earthspawn.mod.utils.RegistryHandler;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.AgeableEntity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
@@ -12,14 +10,18 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
+import java.util.UUID;
 
 public class OuliskEntity extends AnimalEntity {
 
@@ -27,16 +29,19 @@ public class OuliskEntity extends AnimalEntity {
 
     public OuliskEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
+        AxisAlignedBB aabb = this.getBoundingBox();
+        this.setBoundingBox(new AxisAlignedBB(aabb.minX - 0.5d, aabb.minY, aabb.minZ - 0.5d, aabb.maxX - 0.5d, aabb.maxY - 0.5d, aabb.maxZ - 0.5d));
     }
+
 
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        this.goalSelector.addGoal(0, new PanicGoal(this, 1.2D));
+        this.goalSelector.addGoal(0, new PanicGoal(this, 1.0D));
         this.goalSelector.addGoal(1, new SwimGoal(this));
-        this.goalSelector.addGoal(2, new BreedGoal(this, 1.1D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.0D, TEMPTATION_ITEMS, false));
-        this.goalSelector.addGoal(4, new RandomWalkingGoal(this, 0.8D));
+        this.goalSelector.addGoal(2, new BreedGoal(this, 0.4D));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 0.6D, TEMPTATION_ITEMS, false));
+        this.goalSelector.addGoal(4, new RandomWalkingGoal(this, 0.4D));
         this.goalSelector.addGoal(5, new LookAtGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
 
@@ -45,7 +50,7 @@ public class OuliskEntity extends AnimalEntity {
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 15.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.35D);
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3D);
     }
 
     @Nullable
@@ -71,9 +76,13 @@ public class OuliskEntity extends AnimalEntity {
         this.playSound(SoundEvents.ENTITY_SHEEP_STEP, 0.15F, 1.0F);
     }
 
-    @Nullable
     @Override
     public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
-        return RegistryHandler.OULISK_ENTITY.get().create(this.world);
+
+        OuliskEntity entity = new OuliskEntity(RegistryHandler.OULISK_ENTITY.get(), this.world);
+
+        entity.onInitialSpawn((IServerWorld) this.world, this.world.getDifficultyForLocation(new BlockPos(this.getPosX(), this.getPosY(), this.getPosZ())),
+                SpawnReason.BREEDING, null, (CompoundNBT) null);
+        return entity;
     }
 }

@@ -3,6 +3,7 @@ package net.earthspawn.mod.utils;
 import net.earthspawn.mod.EarthspawnMod;
 import net.earthspawn.mod.entities.OuliskEntity;
 import net.earthspawn.mod.entities.renderer.OuliskEntityRenderer;
+import net.earthspawn.mod.entities.renderer.OuliskLayerRenderer;
 import net.earthspawn.mod.items.spawneggs.ModSpawnEggItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

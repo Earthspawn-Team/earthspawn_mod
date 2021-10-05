@@ -11,23 +11,30 @@ import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.IEntityRenderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
+import net.minecraft.client.renderer.entity.layers.SpiderEyesLayer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.model.SpiderModel;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class OuliskEntityRenderer extends MobRenderer<OuliskEntity, OuliskEntityModel<OuliskEntity>> {
-
-    protected static final ResourceLocation TEXTURE = new ResourceLocation(EarthspawnMod.MOD_ID, "textures/entity/oulisk.png");
+@OnlyIn(Dist.CLIENT)
+public class OuliskEntityRenderer<T extends OuliskEntity> extends MobRenderer<T, OuliskEntityModel<T>> {
+    private static final ResourceLocation OULISK_TEXTURES = new ResourceLocation("earthspawn:textures/entity/oulisk.png");
 
     public OuliskEntityRenderer(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new OuliskEntityModel<>(), 1.0F);
+        this.addLayer(new OuliskLayerRenderer<>(this));
     }
 
-    @Override
-    public ResourceLocation getEntityTexture(OuliskEntity entity) {
-        return TEXTURE;
+    protected float getDeathMaxRotation(T entityLivingBaseIn) {
+        return 180.0F;
+    }
+
+    public ResourceLocation getEntityTexture(T entity) {
+        return OULISK_TEXTURES;
     }
 }
