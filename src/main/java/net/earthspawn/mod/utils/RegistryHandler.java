@@ -2,9 +2,7 @@ package net.earthspawn.mod.utils;
 
 import net.earthspawn.mod.EarthspawnMod;
 import net.earthspawn.mod.armors.ArmorMaterial;
-import net.earthspawn.mod.blocks.HallowDirt;
-import net.earthspawn.mod.blocks.HallowGrass;
-import net.earthspawn.mod.blocks.TopazOre;
+import net.earthspawn.mod.blocks.*;
 import net.earthspawn.mod.entities.OuliskEntity;
 import net.earthspawn.mod.itemgroup.EarthspawnModItemgroup;
 import net.earthspawn.mod.items.ItemBase;
@@ -50,6 +48,8 @@ public class RegistryHandler {
     //blocks
     public static final RegistryObject<Block> HALLOW_GRASS = BLOCKS.register("hallow_grass", HallowGrass::new);
     public static final RegistryObject<Block> HALLOW_DIRT = BLOCKS.register("hallow_dirt", HallowDirt::new);
+    public static final RegistryObject<Block> HALLOW_LOG = BLOCKS.register("hallow_log", HallowLog::new);
+    public static final RegistryObject<Block> HALLOW_LOG_GLOWING = BLOCKS.register("hallow_log_glowing", HallowLogGlowing::new);
     public static final RegistryObject<Block> TOPAZ_ORE = BLOCKS.register("topaz_ore", TopazOre::new);
 
     //items

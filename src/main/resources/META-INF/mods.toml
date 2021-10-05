@@ -5,7 +5,7 @@ license="All rights reserved"
 #issueTrackerURL="http://my.issue.tracker/"
 [[mods]]
 modId="earthspawn"
-version="${file.jarVersion}"
+version="1.16.5-0.0.1"
 displayName="Earthspawn"
 #updateJSONURL="http://myurl.me/"
 displayURL="https://github.com/Earthspawn/earthspawn_mod"

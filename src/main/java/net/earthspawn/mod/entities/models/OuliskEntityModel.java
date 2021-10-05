@@ -3,11 +3,12 @@ package net.earthspawn.mod.entities.models;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.earthspawn.mod.entities.OuliskEntity;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class OuliskEntityModel<T extends OuliskEntity> extends EntityModel<T> {
+public class OuliskEntityModel<T extends OuliskEntity> extends AgeableModel<T> {
 
     private final ModelRenderer Head;
     private final ModelRenderer bb_main_r1;
@@ -182,6 +183,16 @@ public class OuliskEntityModel<T extends OuliskEntity> extends EntityModel<T> {
         Body.render(matrixStack, buffer, packedLight, packedOverlay);
         LeftBackLeg.render(matrixStack, buffer, packedLight, packedOverlay);
         RightBackLeg.render(matrixStack, buffer, packedLight, packedOverlay);
+    }
+
+    @Override
+    protected Iterable<ModelRenderer> getHeadParts() {
+        return null;
+    }
+
+    @Override
+    protected Iterable<ModelRenderer> getBodyParts() {
+        return null;
     }
 
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
