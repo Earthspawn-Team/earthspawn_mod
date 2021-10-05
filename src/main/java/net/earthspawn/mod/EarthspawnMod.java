@@ -1,6 +1,7 @@
 package net.earthspawn.mod;
 
 import net.earthspawn.mod.utils.RegistryHandler;
+import net.earthspawn.mod.world.biomes.BiomeGen;
 import net.earthspawn.mod.world.features.OreGen;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -13,6 +14,7 @@ public class EarthspawnMod
 
     public EarthspawnMod() {
         RegistryHandler.init();
+        BiomeGen.init();
 
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGen::addOres);
         MinecraftForge.EVENT_BUS.register(this);

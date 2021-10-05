@@ -10,7 +10,7 @@ import net.minecraftforge.common.ToolType;
 public class HallowGrass extends Block {
 
     public HallowGrass() {
-        super(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN)
+        super(AbstractBlock.Properties.create(Material.ORGANIC, MaterialColor.CYAN)
         .hardnessAndResistance(0.5F)
         .harvestTool(ToolType.SHOVEL)
         .harvestLevel(0)
