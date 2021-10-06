@@ -21,8 +21,13 @@
   "item.earthspawn.astral_dust": "Astral Dust",
 
   "item.earthspawn.oulisk_spawn_egg": "Oulisk Spawn Egg",
+  "item.earthspawn.oulisk_meat": "Oulisk Meat",
+  "item.earthspawn.oulisk_meat_cooked": "Cooked Oulisk Meat",
+
+  "item.earthspawn.banshee_spawn_egg": "Banshee Spawn Egg",
 
   "entity.earthspawn.oulisk_entity": "Oulisk",
+  "entity.earthspawn.banshee_entity": "Banshee",
 
   "biome.earthspawn.hallow_plains": "Hallow Plains",
 

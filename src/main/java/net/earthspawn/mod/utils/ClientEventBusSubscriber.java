@@ -1,7 +1,9 @@
 package net.earthspawn.mod.utils;
 
 import net.earthspawn.mod.EarthspawnMod;
+import net.earthspawn.mod.entities.BansheeEntity;
 import net.earthspawn.mod.entities.OuliskEntity;
+import net.earthspawn.mod.entities.renderer.BansheeEntityRenderer;
 import net.earthspawn.mod.entities.renderer.OuliskEntityRenderer;
 import net.earthspawn.mod.entities.renderer.OuliskLayerRenderer;
 import net.earthspawn.mod.items.spawneggs.ModSpawnEggItem;
@@ -22,6 +24,7 @@ public class ClientEventBusSubscriber {
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event){
         RenderingRegistry.registerEntityRenderingHandler(RegistryHandler.OULISK_ENTITY.get(), OuliskEntityRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(RegistryHandler.BANSHEE_ENTITY.get(), BansheeEntityRenderer::new);
     }
 
     @SubscribeEvent
@@ -29,7 +32,12 @@ public class ClientEventBusSubscriber {
         DeferredWorkQueue.runLater(() -> {
             GlobalEntityTypeAttributes.put(RegistryHandler.OULISK_ENTITY.get(), OuliskEntity.setCustomAttributes().create());
         });
-    }
+            DeferredWorkQueue.runLater(() -> {
+                GlobalEntityTypeAttributes.put(RegistryHandler.BANSHEE_ENTITY.get(), OuliskEntity.setCustomAttributes().create());
+            });
+        }
+
+    //SpawnEgg
 
     @SubscribeEvent
     public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {

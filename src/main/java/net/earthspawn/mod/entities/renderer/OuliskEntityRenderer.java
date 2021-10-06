@@ -31,7 +31,7 @@ public class OuliskEntityRenderer<T extends OuliskEntity> extends MobRenderer<T,
     }
 
     protected float getDeathMaxRotation(T entityLivingBaseIn) {
-        return 180.0F;
+        return 90.0F;
     }
 
     public ResourceLocation getEntityTexture(T entity) {

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "earthspawn:oulisk_meat"
+  },
+  "result": "earthspawn:oulisk_meat_cooked",
+  "experience": 0.35,
+  "cookingtime": 200
+}

@@ -3,9 +3,12 @@ package net.earthspawn.mod.utils;
 import net.earthspawn.mod.EarthspawnMod;
 import net.earthspawn.mod.armors.ArmorMaterial;
 import net.earthspawn.mod.blocks.*;
+import net.earthspawn.mod.entities.BansheeEntity;
 import net.earthspawn.mod.entities.OuliskEntity;
 import net.earthspawn.mod.itemgroup.EarthspawnModItemgroup;
 import net.earthspawn.mod.items.ItemBase;
+import net.earthspawn.mod.items.OuliskMeat;
+import net.earthspawn.mod.items.OuliskMeatCooked;
 import net.earthspawn.mod.items.spawneggs.ModSpawnEggItem;
 import net.earthspawn.mod.tools.ItemTier;
 import net.minecraft.block.Block;
@@ -60,8 +63,19 @@ public class RegistryHandler {
     public static final RegistryObject<Item> CHARGED_CRYSTAL = ITEMS.register("charged_crystal", ItemBase::new);
     public static final RegistryObject<Item> ASTRAL_DUST = ITEMS.register("astral_dust", ItemBase::new);
 
+    //spawnEggs
+
     public static final RegistryObject<ModSpawnEggItem> OULISK_SPAWN_EGG = ITEMS.register("oulisk_spawn_egg",
             () -> new ModSpawnEggItem(RegistryHandler.OULISK_ENTITY, 0x900EBD, 0x00FFFB, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+
+    public static final RegistryObject<ModSpawnEggItem> BANSHEE_SPAWN_EGG = ITEMS.register("banshee_spawn_egg",
+            () -> new ModSpawnEggItem(RegistryHandler.BANSHEE_ENTITY, 0x0C1A8E, 0x00FFFB, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
+
+
+    //foods
+    public static final RegistryObject<OuliskMeat> OULISK_MEAT = ITEMS.register("oulisk_meat", OuliskMeat::new);
+    public static final RegistryObject<OuliskMeatCooked> OULISK_MEAT_COOKED = ITEMS.register("oulisk_meat_cooked", OuliskMeatCooked::new);
+
 
     //tools
     public static final RegistryObject<SwordItem> TOPAZ_SWORD = ITEMS.register("topaz_sword",
@@ -82,6 +96,11 @@ public class RegistryHandler {
     //entities
     public static final RegistryObject<EntityType<OuliskEntity>> OULISK_ENTITY = ENTITY_TYPES.register("oulisk",
             () -> EntityType.Builder.create(OuliskEntity::new, EntityClassification.CREATURE)
-                    .size(1.1F, 1.0F)
+                    .size(1.0F, 1.25F)
                     .build(new ResourceLocation(EarthspawnMod.MOD_ID, "oulisk").toString()));
+
+    public static final RegistryObject<EntityType<BansheeEntity>> BANSHEE_ENTITY = ENTITY_TYPES.register("banshee",
+            () -> EntityType.Builder.create(BansheeEntity::new, EntityClassification.CREATURE)
+                    .size(1.0F, 1.0F)
+                    .build(new ResourceLocation(EarthspawnMod.MOD_ID, "banshee").toString()));
 }

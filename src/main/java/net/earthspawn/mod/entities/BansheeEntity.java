@@ -22,11 +22,12 @@ import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
 
-public class OuliskEntity extends AnimalEntity {
+public class BansheeEntity extends AnimalEntity{
+
 
     public static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(Items.WHEAT);
 
-    public OuliskEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
+    public BansheeEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
         AxisAlignedBB aabb = this.getBoundingBox();
         this.setBoundingBox(new AxisAlignedBB(aabb.minX - 0.5d, aabb.minY, aabb.minZ - 0.5d, aabb.maxX - 0.5d, aabb.maxY - 0.5d, aabb.maxZ - 0.5d));
@@ -56,30 +57,30 @@ public class OuliskEntity extends AnimalEntity {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_SHEEP_STEP;
+        return SoundEvents.ENTITY_PHANTOM_AMBIENT;
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_SHEEP_DEATH;
+        return SoundEvents.ENTITY_BLAZE_DEATH;
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.ENTITY_SHEEP_HURT;
+        return SoundEvents.ENTITY_PHANTOM_HURT;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.ENTITY_SHEEP_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.ENTITY_COW_STEP, 0.15F, 1.0F);
     }
 
     @Override
     public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
 
-        OuliskEntity entity = new OuliskEntity(RegistryHandler.OULISK_ENTITY.get(), this.world);
+        BansheeEntity entity = new BansheeEntity(RegistryHandler.BANSHEE_ENTITY.get(), this.world);
 
         entity.onInitialSpawn((IServerWorld) this.world, this.world.getDifficultyForLocation(new BlockPos(this.getPosX(), this.getPosY(), this.getPosZ())),
                 SpawnReason.BREEDING, null, (CompoundNBT) null);
