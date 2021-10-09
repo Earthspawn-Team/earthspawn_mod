@@ -1,4 +1,4 @@
-package net.earthspawn.mod.blocks;
+package net.earthspawn.mod.blocks.states;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;

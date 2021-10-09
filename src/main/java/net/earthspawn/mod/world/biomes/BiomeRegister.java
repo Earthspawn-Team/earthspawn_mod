@@ -15,27 +15,32 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Supplier;
 
-public class BiomeGen {
+public class BiomeRegister {
 
     public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, EarthspawnMod.MOD_ID);
 
-    static {
+    static
+    {
         createBiome("hallow_plains", BiomeMaker::makeVoidBiome);
     }
 
-    public static RegistryObject<Biome> createBiome(String name, Supplier<Biome> biome) {
+    public static RegistryObject<Biome> createBiome(String name, Supplier<Biome> biome)
+    {
         return BIOMES.register(name, biome);
     }
 
-    public static RegistryKey<Biome> registryKey(String name) {
+    public static RegistryKey<Biome> registryKey(String name)
+    {
         return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(EarthspawnMod.MOD_ID, name));
     }
 
-    public static void registerBiomes() {
+    public static void registerBiomes()
+    {
         BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(HALLOW_PLAINS, 20));
     }
 
-    public static void init() {
+    public static void init()
+    {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BIOMES.register(bus);
         registerBiomes();

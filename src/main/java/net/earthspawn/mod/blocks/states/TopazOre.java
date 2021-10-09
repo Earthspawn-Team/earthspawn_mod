@@ -1,4 +1,4 @@
-package net.earthspawn.mod.blocks;
+package net.earthspawn.mod.blocks.states;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;

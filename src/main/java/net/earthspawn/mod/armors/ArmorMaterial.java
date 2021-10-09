@@ -1,7 +1,7 @@
 package net.earthspawn.mod.armors;
 
 import net.earthspawn.mod.EarthspawnMod;
-import net.earthspawn.mod.utils.RegistryHandler;
+import net.earthspawn.mod.items.ItemRegister;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 public enum ArmorMaterial implements IArmorMaterial {
 
     TOPAZ(EarthspawnMod.MOD_ID + ":topaz", 40, new int[] {5, 7, 9, 4}, 24, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4, 1, () -> {
-        return Ingredient.fromItems(RegistryHandler.TOPAZ.get());
+        return Ingredient.fromItems(ItemRegister.TOPAZ.get());
     });
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[] {11, 16, 15, 13};

@@ -1,6 +1,6 @@
 package net.earthspawn.mod.tools;
 
-import net.earthspawn.mod.utils.RegistryHandler;
+import net.earthspawn.mod.items.ItemRegister;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 public enum ItemTier implements IItemTier {
 
     TOPAZ_TIER(3, 800, 8.0F, 3.0F, 16, () -> {
-        return Ingredient.fromItems(RegistryHandler.TOPAZ.get());
+        return Ingredient.fromItems(ItemRegister.TOPAZ.get());
     });
 
     private final int harvestLevel;

@@ -1,4 +1,4 @@
-package net.earthspawn.mod.items;
+package net.earthspawn.mod.items.foods;
 
 import net.earthspawn.mod.itemgroup.EarthspawnModItemgroup;
 import net.minecraft.item.Food;

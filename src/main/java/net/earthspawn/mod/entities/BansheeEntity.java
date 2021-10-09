@@ -1,6 +1,5 @@
 package net.earthspawn.mod.entities;
 
-import net.earthspawn.mod.utils.RegistryHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -80,7 +79,7 @@ public class BansheeEntity extends AnimalEntity{
     @Override
     public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
 
-        BansheeEntity entity = new BansheeEntity(RegistryHandler.BANSHEE_ENTITY.get(), this.world);
+        BansheeEntity entity = new BansheeEntity(EntityRegister.BANSHEE_ENTITY.get(), this.world);
 
         entity.onInitialSpawn((IServerWorld) this.world, this.world.getDifficultyForLocation(new BlockPos(this.getPosX(), this.getPosY(), this.getPosZ())),
                 SpawnReason.BREEDING, null, (CompoundNBT) null);

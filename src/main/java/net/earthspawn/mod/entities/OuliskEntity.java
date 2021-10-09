@@ -1,6 +1,5 @@
 package net.earthspawn.mod.entities;
 
-import net.earthspawn.mod.utils.RegistryHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -79,7 +78,7 @@ public class OuliskEntity extends AnimalEntity {
     @Override
     public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
 
-        OuliskEntity entity = new OuliskEntity(RegistryHandler.OULISK_ENTITY.get(), this.world);
+        OuliskEntity entity = new OuliskEntity(EntityRegister.OULISK_ENTITY.get(), this.world);
 
         entity.onInitialSpawn((IServerWorld) this.world, this.world.getDifficultyForLocation(new BlockPos(this.getPosX(), this.getPosY(), this.getPosZ())),
                 SpawnReason.BREEDING, null, (CompoundNBT) null);
