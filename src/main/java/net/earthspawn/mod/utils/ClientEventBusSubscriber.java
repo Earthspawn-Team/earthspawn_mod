@@ -1,14 +1,17 @@
 package net.earthspawn.mod.utils;
 
 import net.earthspawn.mod.EarthspawnMod;
+import net.earthspawn.mod.blocks.BlockRegister;
 import net.earthspawn.mod.entities.BansheeEntity;
-import net.earthspawn.mod.entities.CrystalStalkerEntity;
 import net.earthspawn.mod.entities.EntityRegister;
 import net.earthspawn.mod.entities.OuliskEntity;
 import net.earthspawn.mod.entities.renderer.BansheeEntityRenderer;
-import net.earthspawn.mod.entities.renderer.CrystalStalkerRenderer;
 import net.earthspawn.mod.entities.renderer.OuliskEntityRenderer;
+import net.earthspawn.mod.entities.renderer.OuliskLayerRenderer;
 import net.earthspawn.mod.items.spawneggs.ModSpawnEggItem;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.event.RegistryEvent;
@@ -26,7 +29,8 @@ public class ClientEventBusSubscriber {
     public static void clientSetup(FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(EntityRegister.OULISK_ENTITY.get(), OuliskEntityRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityRegister.BANSHEE_ENTITY.get(), BansheeEntityRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityRegister.CRYSTAL_STALKER_ENTITY.get(), CrystalStalkerRenderer::new);
+
+        RenderTypeLookup.setRenderLayer(BlockRegister.HALLOW_ROOTS.get(), RenderType.getCutout());
     }
 
     @SubscribeEvent
@@ -34,14 +38,9 @@ public class ClientEventBusSubscriber {
         DeferredWorkQueue.runLater(() -> {
             GlobalEntityTypeAttributes.put(EntityRegister.OULISK_ENTITY.get(), OuliskEntity.setCustomAttributes().create());
         });
-
-        DeferredWorkQueue.runLater(() -> {
-            GlobalEntityTypeAttributes.put(EntityRegister.BANSHEE_ENTITY.get(), BansheeEntity.setCustomAttributes().create());
-        });
-
-        DeferredWorkQueue.runLater(() -> {
-            GlobalEntityTypeAttributes.put(EntityRegister.CRYSTAL_STALKER_ENTITY.get(), CrystalStalkerEntity.setCustomAttributes().create());
-        });
+            DeferredWorkQueue.runLater(() -> {
+                GlobalEntityTypeAttributes.put(EntityRegister.BANSHEE_ENTITY.get(), OuliskEntity.setCustomAttributes().create());
+            });
         }
 
     //SpawnEgg

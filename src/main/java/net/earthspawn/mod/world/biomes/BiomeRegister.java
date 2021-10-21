@@ -39,8 +39,7 @@ public class BiomeRegister {
         BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(HALLOW_PLAINS, 20));
     }
 
-    public static void init()
-    {
+    public static void init() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BIOMES.register(bus);
         registerBiomes();
