@@ -366,7 +366,8 @@ public class CrystalStalkerModel<T extends CrystalStalkerEntity> extends EntityM
         this.Head.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
         this.RightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
         this.LeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-        this.Tail.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 0.8F * limbSwingAmount;
+        this.Tail.rotateAngleX = MathHelper.cos(ageInTicks * 0.6662F);
+        this.LowerTail.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 0.4F * limbSwingAmount;
         this.RightArm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
         this.LeftArm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
     }
@@ -380,7 +381,6 @@ public class CrystalStalkerModel<T extends CrystalStalkerEntity> extends EntityM
         RightArm.render(matrixStack, buffer, packedLight, packedOverlay);
         Head.render(matrixStack, buffer, packedLight, packedOverlay);
         Tail.render(matrixStack, buffer, packedLight, packedOverlay);
-        LowerTail.render(matrixStack, buffer, packedLight, packedOverlay);
     }
 
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
