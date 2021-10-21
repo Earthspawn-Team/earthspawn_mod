@@ -4,6 +4,7 @@ import net.earthspawn.mod.EarthspawnMod;
 import net.earthspawn.mod.blocks.states.*;
 import net.earthspawn.mod.itemgroup.EarthspawnModItemgroup;
 import net.minecraft.block.Block;
+import net.minecraft.block.FlowerBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -38,5 +39,6 @@ public class BlockRegister {
     public static final RegistryObject<Block> HALLOW_DIRT = BLOCKS.register("hallow_dirt", HallowDirt::new);
     public static final RegistryObject<Block> HALLOW_LOG = BLOCKS.register("hallow_log", HallowLog::new);
     public static final RegistryObject<Block> HALLOW_LOG_GLOWING = BLOCKS.register("hallow_log_glowing", HallowLogGlowing::new);
+    public static final RegistryObject<Block> HALLOW_ROOTS = BLOCKS.register("hallow_roots", HallowRoots::new);
     public static final RegistryObject<Block> TOPAZ_ORE = BLOCKS.register("topaz_ore", TopazOre::new);
 }

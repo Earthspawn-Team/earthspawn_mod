@@ -14,7 +14,7 @@
     "water_color": 8788928,
     "water_fog_color": 8788928,
     "grass_color": 2682363,
-    "foliage_color": 2682363
+    "foliage_color": 14630399
   },
   "starts": [
     "minecraft:pillager_outpost",
@@ -34,6 +34,16 @@
   },
   "spawn_costs": {},
   "carvers": {},
-  "features": []
+  "features": [
+    [
+      "earthspawn:hallow_roots_feature",
+      "minecraft:lake_water",
+      "minecraft:patch_grass_forest",
+      "minecraft:patch_tall_grass",
+      "minecraft:disk_clay",
+      "minecraft:disk_gravel",
+      "minecraft:disk_sand",
+      "minecraft:seagrass_river"
+    ]
+  ]
 }
-
