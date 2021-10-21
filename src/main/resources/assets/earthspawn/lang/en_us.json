@@ -27,9 +27,11 @@
 
   "item.earthspawn.banshee_spawn_egg": "Banshee Spawn Egg",
 
-  "entity.earthspawn.oulisk_entity": "Oulisk",
-  "entity.earthspawn.banshee_entity": "Banshee",
-  "entity.earthspawn.crystal_stalker_entity": "Crystal Stalker",
+  "item.earthspawn.crystal_stalker_spawn_egg": "Crystal Stalker Spawn Egg",
+
+  "entity.earthspawn.oulisk": "Oulisk",
+  "entity.earthspawn.banshee": "Banshee",
+  "entity.earthspawn.crystal_stalker": "Crystal Stalker",
 
   "biome.earthspawn.hallow_plains": "Hallow Plains",
 

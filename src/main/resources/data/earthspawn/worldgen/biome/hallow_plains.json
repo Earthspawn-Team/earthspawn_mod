@@ -29,6 +29,12 @@
         "weight": 12,
         "minCount": 4,
         "maxCount": 4
+      },
+      {
+        "type": "earthspawn:crystal_stalker",
+        "weight": 4,
+        "minCount": 2,
+        "maxCount": 4
       }
     ]
   },

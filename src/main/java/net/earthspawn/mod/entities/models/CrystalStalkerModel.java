@@ -13,7 +13,6 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
 public class CrystalStalkerModel<T extends CrystalStalkerEntity> extends EntityModel<T> {
-
     private final ModelRenderer Body;
     private final ModelRenderer cube_r1;
     private final ModelRenderer cube_r2;
@@ -259,12 +258,12 @@ public class CrystalStalkerModel<T extends CrystalStalkerEntity> extends EntityM
         cube_r27.setTextureOffset(58, 0).addBox(-1.0F, -0.5F, -4.5F, 2.0F, 1.0F, 9.0F, 0.0F, false);
 
         LowerMouth = new ModelRenderer(this);
-        LowerMouth.setRotationPoint(2.0F, 2.3697F, -12.4768F);
+        LowerMouth.setRotationPoint(-0.25F, 1.2187F, -7.4792F);
         Head.addChild(LowerMouth);
 
 
         cube_r28 = new ModelRenderer(this);
-        cube_r28.setRotationPoint(0.0F, 0.0F, 0.0F);
+        cube_r28.setRotationPoint(2.25F, 1.151F, -4.9976F);
         LowerMouth.addChild(cube_r28);
         setRotationAngle(cube_r28, 0.9463F, -0.6507F, 0.3916F);
         cube_r28.setTextureOffset(30, 22).addBox(-0.5F, -0.1F, -0.2F, 1.0F, 1.0F, 1.0F, 0.0F, false);
@@ -273,7 +272,7 @@ public class CrystalStalkerModel<T extends CrystalStalkerEntity> extends EntityM
         cube_r28.setTextureOffset(8, 12).addBox(-3.0F, 2.15F, -0.2F, 1.0F, 1.0F, 1.0F, 0.0F, false);
 
         cube_r29 = new ModelRenderer(this);
-        cube_r29.setRotationPoint(-2.0F, -0.0648F, 2.3708F);
+        cube_r29.setRotationPoint(0.25F, 1.0862F, -2.6268F);
         LowerMouth.addChild(cube_r29);
         setRotationAngle(cube_r29, 0.3491F, 0.0F, 0.0F);
         cube_r29.setTextureOffset(60, 10).addBox(-2.5F, -1.25F, -2.75F, 5.0F, 3.0F, 6.0F, 0.0F, false);
@@ -364,12 +363,13 @@ public class CrystalStalkerModel<T extends CrystalStalkerEntity> extends EntityM
     public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.Head.rotateAngleX = headPitch * ((float)Math.PI / 180F);
         this.Head.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
-        this.RightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-        this.LeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-        this.Tail.rotateAngleX = MathHelper.cos(ageInTicks * 0.6662F);
-        this.LowerTail.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 0.4F * limbSwingAmount;
-        this.RightArm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-        this.LeftArm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        this.LowerMouth.rotateAngleX = MathHelper.cos(ageInTicks * 0.05F) * 0.05F;
+        this.RightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.0F * limbSwingAmount;
+        this.LeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.0F * limbSwingAmount;
+        this.Tail.rotateAngleX = MathHelper.cos(ageInTicks * 0.05F) * 0.07F;
+        this.LowerTail.rotateAngleX = MathHelper.cos(ageInTicks * 0.05F) * 0.05F;
+        this.RightArm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 0.2F * limbSwingAmount;
+        this.LeftArm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 0.2F * limbSwingAmount;
     }
 
     @Override

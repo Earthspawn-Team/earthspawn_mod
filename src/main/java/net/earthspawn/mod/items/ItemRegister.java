@@ -46,6 +46,8 @@ public class ItemRegister {
     public static final RegistryObject<ModSpawnEggItem> BANSHEE_SPAWN_EGG = ITEMS.register("banshee_spawn_egg",
             () -> new ModSpawnEggItem(EntityRegister.BANSHEE_ENTITY, 0x0C1A8E, 0x00FFFB, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
 
+    public static final RegistryObject<ModSpawnEggItem> CRYSTAL_STALKER_SPAWN_EGG = ITEMS.register("crystal_stalker_spawn_egg",
+            () -> new ModSpawnEggItem(EntityRegister.CRYSTAL_STALKER_ENTITY, 0x526465, 0x00FFFB, new Item.Properties().group(EarthspawnModItemgroup.EARTHSPAWN_MOD_ITEMGROUP)));
 
     //foods
     public static final RegistryObject<OuliskMeat> OULISK_MEAT = ITEMS.register("oulisk_meat", OuliskMeat::new);
