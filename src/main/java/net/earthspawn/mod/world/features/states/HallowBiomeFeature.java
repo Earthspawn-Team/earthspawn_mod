@@ -14,11 +14,11 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 
-public class HallowRootsFeature extends Feature<NoFeatureConfig> {
+public class HallowBiomeFeature extends Feature<NoFeatureConfig> {
 
     private static final BlockState HALLOW_ROOT = BlockRegister.HALLOW_ROOTS.get().getDefaultState();
 
-    public HallowRootsFeature(Codec<NoFeatureConfig> codec) {
+    public HallowBiomeFeature(Codec<NoFeatureConfig> codec) {
         super(codec);
     }
 

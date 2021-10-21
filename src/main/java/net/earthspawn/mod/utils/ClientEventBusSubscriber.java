@@ -30,6 +30,8 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(EntityRegister.BANSHEE_ENTITY.get(), BansheeEntityRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityRegister.CRYSTAL_STALKER_ENTITY.get(), CrystalStalkerRenderer::new);
 
+        RenderTypeLookup.setRenderLayer(BlockRegister.GLADIOLUS.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockRegister.AMARYLLIS.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockRegister.HALLOW_ROOTS.get(), RenderType.getCutout());
     }
 
