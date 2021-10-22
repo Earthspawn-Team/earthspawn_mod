@@ -33,6 +33,6 @@ public class EntityRegister {
 
     public static final RegistryObject<EntityType<CrystalStalkerEntity>> CRYSTAL_STALKER_ENTITY = ENTITY_TYPES.register("crystal_stalker",
             () -> EntityType.Builder.create(CrystalStalkerEntity::new, EntityClassification.CREATURE)
-                    .size(1.0F, 1.0F)
+                    .size(1.0F, 1.25F)
                     .build(new ResourceLocation(EarthspawnMod.MOD_ID, "crystal_stalker").toString()));
 }

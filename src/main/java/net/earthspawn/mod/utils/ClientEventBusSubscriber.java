@@ -2,6 +2,7 @@ package net.earthspawn.mod.utils;
 
 import net.earthspawn.mod.EarthspawnMod;
 import net.earthspawn.mod.blocks.BlockRegister;
+import net.earthspawn.mod.entities.BansheeEntity;
 import net.earthspawn.mod.entities.CrystalStalkerEntity;
 import net.earthspawn.mod.entities.EntityRegister;
 import net.earthspawn.mod.entities.OuliskEntity;
@@ -39,7 +40,7 @@ public class ClientEventBusSubscriber {
             GlobalEntityTypeAttributes.put(EntityRegister.OULISK_ENTITY.get(), OuliskEntity.setCustomAttributes().create());
         });
         DeferredWorkQueue.runLater(() -> {
-                GlobalEntityTypeAttributes.put(EntityRegister.BANSHEE_ENTITY.get(), OuliskEntity.setCustomAttributes().create());
+                GlobalEntityTypeAttributes.put(EntityRegister.BANSHEE_ENTITY.get(), BansheeEntity.setCustomAttributes().create());
         });
         DeferredWorkQueue.runLater(() -> {
             GlobalEntityTypeAttributes.put(EntityRegister.CRYSTAL_STALKER_ENTITY.get(), CrystalStalkerEntity.setCustomAttributes().create());
