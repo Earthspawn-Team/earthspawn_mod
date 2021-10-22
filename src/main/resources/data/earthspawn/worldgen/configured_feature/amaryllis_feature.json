@@ -39,14 +39,14 @@
                 "xspread": 7,
                 "yspread": 3,
                 "zspread": 7,
-                "tries": 64,
+                "tries": 128,
                 "state_provider": {
                   "type": "minecraft:weighted_state_provider",
                   "entries": [
                     {
-                      "weight": 4,
+                      "weight": 8,
                       "data": {
-                        "Name": "earthspawn:hallow_roots"
+                        "Name": "earthspawn:amaryllis"
                       }
                     }
                   ]

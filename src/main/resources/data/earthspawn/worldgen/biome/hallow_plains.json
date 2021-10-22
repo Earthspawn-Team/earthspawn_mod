@@ -1,6 +1,6 @@
 {
   "surface_builder": "earthspawn:hallow_surface",
-  "depth": 0.3,
+  "depth": 0.4,
   "scale": 0.055,
   "temperature": 0.8,
   "downfall": 0.4,
@@ -42,6 +42,8 @@
   "carvers": {},
   "features": [
     [
+      "earthspawn:gladiolus_feature",
+      "earthspawn:amaryllis_feature",
       "earthspawn:hallow_roots_feature",
       "minecraft:lake_water",
       "minecraft:patch_grass_forest",
@@ -49,7 +51,11 @@
       "minecraft:disk_clay",
       "minecraft:disk_gravel",
       "minecraft:disk_sand",
-      "minecraft:seagrass_river"
+      "minecraft:seagrass_river",
+      "minecraft:patch_grass_forest",
+      "minecraft:patch_grass_plain",
+      "minecraft:spring_water",
+      "minecraft:patch_tall_grass_2"
     ]
   ]
 }

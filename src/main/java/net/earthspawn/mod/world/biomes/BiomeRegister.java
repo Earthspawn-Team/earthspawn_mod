@@ -8,7 +8,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeMaker;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -24,9 +23,9 @@ public class BiomeRegister {
         createBiome("hallow_plains", BiomeMaker::makeVoidBiome);
     }
 
-    public static RegistryObject<Biome> createBiome(String name, Supplier<Biome> biome)
+    public static void createBiome(String name, Supplier<Biome> biome)
     {
-        return BIOMES.register(name, biome);
+        BIOMES.register(name, biome);
     }
 
     public static RegistryKey<Biome> registryKey(String name)
@@ -36,7 +35,7 @@ public class BiomeRegister {
 
     public static void registerBiomes()
     {
-        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(HALLOW_PLAINS, 20));
+        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(HALLOW_PLAINS, 15));
     }
 
     public static void init() {
